@@ -30,24 +30,32 @@ let subCarousel = document.createElement('div');
 carouselDiv.append(subCarousel);
 console.log('Debug ok');
 
-let slidesDiv = document.createElement('div');
-slidesDiv.className = ' slides';
-let buttonsDiv = document.createElement('div');
-buttonsDiv.className = 'buttons';
-subCarousel.append(slidesDiv, buttonsDiv);
-console.log('Debug ok');
-
 const pics = ["consegna/img/01.webp",
               "consegna/img/02.webp",
               "consegna/img/03.webp",
               "consegna/img/04.webp",
               "consegna/img/05.webp"]
 ;
-
 console.log(pics);
+
+const appearSlide = 0
 
 for (let i = 0; i < pics.length; i++) {
     console.log(pics[i]);
-    slidesDiv.innerHTML = `<img src="${pics[i]}">`;
+    subCarousel.innerHTML = `<div class="slides">
+                                <img src="${pics[i]}">
+                            </div>`;
     console.log('Debug ok');
 }
+
+let slidesGroup = document.querySelectorAll('.slides');
+slidesGroup[appearSlide].classList.add('appear');
+
+let buttonsDiv = document.createElement('div');
+buttonsDiv.className = 'buttons';
+subCarousel.append(buttonsDiv);
+console.log('Debug ok');
+
+buttonsDiv.innerHTML = `<button class="back"><</button>
+    
+                        <button class="forward">></button>`;
