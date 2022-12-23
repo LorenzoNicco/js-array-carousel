@@ -38,11 +38,11 @@ const pics = ["consegna/img/01.webp",
 ;
 console.log(pics);
 
-const appearSlide = 0
+let appearSlide = 0;
 
 for (let i = 0; i < pics.length; i++) {
     console.log(pics[i]);
-    subCarousel.innerHTML = `<div class="slides">
+    subCarousel.innerHTML += `<div class="slides">
                                 <img src="${pics[i]}">
                             </div>`;
     console.log('Debug ok');
@@ -50,6 +50,7 @@ for (let i = 0; i < pics.length; i++) {
 
 let slidesGroup = document.querySelectorAll('.slides');
 slidesGroup[appearSlide].classList.add('appear');
+console.log('slidesGroup', slidesGroup[appearSlide], appearSlide);
 
 let buttonsDiv = document.createElement('div');
 buttonsDiv.className = 'buttons';
@@ -58,4 +59,30 @@ console.log('Debug ok');
 
 buttonsDiv.innerHTML = `<button class="back"><</button>
     
-                        <button class="forward">></button>`;
+                        <button class="forward">></button>`
+;
+
+// MILESTONE 3
+const forwardButton = document.querySelector('.forward');
+console.log('forwardButton');
+
+forwardButton.addEventListener('click', 
+    function () {
+        console.log('Cliccato avanti');
+        slidesGroup[appearSlide].classList.remove('appear');
+        appearSlide = appearSlide + 1;
+        slidesGroup[appearSlide].classList.add('appear');
+    }
+);
+
+const backButton = document.querySelector('.back');
+console.log('backButton');
+
+backButton.addEventListener('click', 
+    function () {
+        console.log('Cliccato avanti');
+        slidesGroup[appearSlide].classList.remove('appear');
+        appearSlide = appearSlide - 1;
+        slidesGroup[appearSlide].classList.add('appear');
+    }
+);
