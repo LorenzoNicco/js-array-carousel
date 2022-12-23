@@ -61,3 +61,11 @@ button {
     background-color: rgba(255, 255, 255, 0.7);
     line-height: 50px;
 }
+
+.disappear {
+    display: none;
+}
+
+.appear {
+    display: block;
+}

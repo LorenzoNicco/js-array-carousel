@@ -22,7 +22,7 @@ const body = document.querySelector('body');
 const main = document.createElement('main');
 body.append(main);
 let carouselDiv = document.createElement('div');
-carouselDiv.className = 'carousel';
+carouselDiv.className = ' carousel';
 main.append(carouselDiv);
 console.log('Debug ok');
 
@@ -31,7 +31,7 @@ carouselDiv.append(subCarousel);
 console.log('Debug ok');
 
 let slidesDiv = document.createElement('div');
-slidesDiv.className = 'slides';
+slidesDiv.className = ' slides';
 let buttonsDiv = document.createElement('div');
 buttonsDiv.className = 'buttons';
 subCarousel.append(slidesDiv, buttonsDiv);
@@ -41,8 +41,13 @@ const pics = ["consegna/img/01.webp",
               "consegna/img/02.webp",
               "consegna/img/03.webp",
               "consegna/img/04.webp",
-              "consegna/img/05.webp"];
+              "consegna/img/05.webp"]
+;
 
-for (let i = 0; i < pics.lenght; i++); {
-    
+console.log(pics);
+
+for (let i = 0; i < pics.length; i++) {
+    console.log(pics[i]);
+    slidesDiv.innerHTML = `<img src="${pics[i]}">`;
+    console.log('Debug ok');
 }
