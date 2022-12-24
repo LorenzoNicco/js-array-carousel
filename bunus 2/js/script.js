@@ -44,22 +44,43 @@ for (let i = 0; i < pics.length; i++) {
     console.log(pics[i]);
     subCarousel.innerHTML += `<div class="slides">
                                 <img src="${pics[i]}">
-                            </div>`;
+                              </div>`;
     console.log('Debug ok');
 }
 
 let slidesGroup = document.querySelectorAll('.slides');
 slidesGroup[appearSlide].classList.add('appear');
-console.log('slidesGroup', slidesGroup[appearSlide], appearSlide);
+
+const sideDiv = document.createElement('div');
+subCarousel.append(sideDiv);
+sideDiv.className = ' side';
+
+sideDiv.innerHTML = `<div class="side-slide">
+                        <img src="consegna/img/01.webp">
+                     </div>
+                     <div class="side-slide">
+                        <img src="consegna/img/02.webp">
+                     </div>
+                     <div class="side-slide">
+                        <img src="consegna/img/03.webp">
+                     </div>
+                     <div class="side-slide">
+                        <img src="consegna/img/04.webp">
+                     </div>
+                     <div class="side-slide">
+                        <img src="consegna/img/05.webp">
+                     </div>
+                            `
+;
 
 let buttonsDiv = document.createElement('div');
 buttonsDiv.className = 'buttons';
-subCarousel.append(buttonsDiv);
+sideDiv.append(buttonsDiv);
 console.log('Debug ok');
 
-buttonsDiv.innerHTML = `<button class="back"><</button>
+buttonsDiv.innerHTML = `<button class="back">^</button>
     
-                        <button class="forward">></button>`
+                        <button class="forward">v</button>`
 ;
 
 // MILESTONE 3
