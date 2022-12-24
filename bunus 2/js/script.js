@@ -24,11 +24,9 @@ body.append(main);
 let carouselDiv = document.createElement('div');
 carouselDiv.className = ' carousel';
 main.append(carouselDiv);
-console.log('Debug ok');
 
 let subCarousel = document.createElement('div');
 carouselDiv.append(subCarousel);
-console.log('Debug ok');
 
 const pics = ["consegna/img/01.webp",
               "consegna/img/02.webp",
@@ -56,71 +54,98 @@ subCarousel.append(sideDiv);
 sideDiv.className = ' side';
 
 sideDiv.innerHTML = `<div class="side-slide">
-                        <img src="consegna/img/01.webp">
+                        <div class="dark-div"></div>
+                        <img src="consegna/img/01.webp" class="side-pic">
                      </div>
                      <div class="side-slide">
-                        <img src="consegna/img/02.webp">
+                        <div class="dark-div"></div>
+                        <img src="consegna/img/02.webp" class="side-pic">
                      </div>
                      <div class="side-slide">
-                        <img src="consegna/img/03.webp">
+                        <div class="dark-div"></div>
+                        <img src="consegna/img/03.webp" class="side-pic">
                      </div>
                      <div class="side-slide">
-                        <img src="consegna/img/04.webp">
+                        <div class="dark-div"></div>
+                        <img src="consegna/img/04.webp" class="side-pic">
                      </div>
                      <div class="side-slide">
-                        <img src="consegna/img/05.webp">
+                        <div class="dark-div"></div>
+                        <img src="consegna/img/05.webp" class="side-pic">
+                     </div>
+
+                     <div class="buttons">
+                        <button class="back">^</button>
+    
+                        <button class="forward">v</button>
                      </div>
                             `
 ;
 
-let buttonsDiv = document.createElement('div');
-buttonsDiv.className = 'buttons';
-sideDiv.append(buttonsDiv);
-console.log('Debug ok');
+let darkDiv = document.querySelectorAll('.dark-div');
+darkDiv[appearSlide].classList.add('disappear');
 
-buttonsDiv.innerHTML = `<button class="back">^</button>
-    
-                        <button class="forward">v</button>`
-;
+let borderPic = document.querySelectorAll('.side-pic');
+borderPic[appearSlide].classList.add('.border-select');
 
 // MILESTONE 3
 const forwardButton = document.querySelector('.forward');
-console.log('forwardButton');
-
-console.log(appearSlide);
 
 forwardButton.addEventListener('click', 
     function () {
         if (appearSlide < slidesGroup.length - 1) {
             slidesGroup[appearSlide].classList.remove('appear');
+            darkDiv[appearSlide].classList.remove('disappear');
+            borderPic[appearSlide].classList.remove('border-select');
+
             appearSlide = appearSlide + 1;
+
             slidesGroup[appearSlide].classList.add('appear');
+            darkDiv[appearSlide].classList.add('disappear');
+            borderPic[appearSlide].classList.add('border-select');
             console.log('Cliccato avanti', appearSlide);
         }
         else {
             slidesGroup[appearSlide].classList.remove('appear');
+            darkDiv[appearSlide].classList.remove('disappear');
+            borderPic[appearSlide].classList.remove('border-select');
+
             appearSlide = 0;
+
             slidesGroup[appearSlide].classList.add('appear');
+            darkDiv[appearSlide].classList.add('disappear');
+            borderPic[appearSlide].classList.add('border-select');
             console.log('Cliccato avanti', appearSlide);
         }
     }
 );
 
 const backButton = document.querySelector('.back');
-console.log('backButton');
 
 backButton.addEventListener('click', 
     function () {
         if (appearSlide > 0) {
             slidesGroup[appearSlide].classList.remove('appear');
+            darkDiv[appearSlide].classList.remove('disappear');
+            borderPic[appearSlide].classList.remove('border-select');
+
             appearSlide = appearSlide - 1;
+
             slidesGroup[appearSlide].classList.add('appear');
+            darkDiv[appearSlide].classList.add('disappear');
+            borderPic[appearSlide].classList.add('border-select');
             console.log('Cliccato avanti', appearSlide);
         }
         else if (appearSlide == 0) {
             slidesGroup[appearSlide].classList.remove('appear');
+            darkDiv[appearSlide].classList.remove('disappear');
+            borderPic[appearSlide].classList.remove('border-select');
+
             appearSlide = slidesGroup.length - 1;
+
             slidesGroup[appearSlide].classList.add('appear');
+            darkDiv[appearSlide].classList.add('disappear');
+            borderPic[appearSlide].classList.add('border-select');
             console.log('Cliccato avanti', appearSlide);
         }
     }
