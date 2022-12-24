@@ -66,12 +66,22 @@ buttonsDiv.innerHTML = `<button class="back"><</button>
 const forwardButton = document.querySelector('.forward');
 console.log('forwardButton');
 
+console.log(appearSlide);
+
 forwardButton.addEventListener('click', 
     function () {
-        console.log('Cliccato avanti');
-        slidesGroup[appearSlide].classList.remove('appear');
-        appearSlide = appearSlide + 1;
-        slidesGroup[appearSlide].classList.add('appear');
+        if (appearSlide < slidesGroup.length - 1) {
+            slidesGroup[appearSlide].classList.remove('appear');
+            appearSlide = appearSlide + 1;
+            slidesGroup[appearSlide].classList.add('appear');
+            console.log('Cliccato avanti', appearSlide);
+        }
+        else {
+            slidesGroup[appearSlide].classList.remove('appear');
+            appearSlide = 0;
+            slidesGroup[appearSlide].classList.add('appear');
+            console.log('Cliccato avanti', appearSlide);
+        }
     }
 );
 
@@ -80,9 +90,17 @@ console.log('backButton');
 
 backButton.addEventListener('click', 
     function () {
-        console.log('Cliccato avanti');
-        slidesGroup[appearSlide].classList.remove('appear');
-        appearSlide = appearSlide - 1;
-        slidesGroup[appearSlide].classList.add('appear');
+        if (appearSlide > 0) {
+            slidesGroup[appearSlide].classList.remove('appear');
+            appearSlide = appearSlide - 1;
+            slidesGroup[appearSlide].classList.add('appear');
+            console.log('Cliccato avanti', appearSlide);
+        }
+        else if (appearSlide == 0) {
+            slidesGroup[appearSlide].classList.remove('appear');
+            appearSlide = slidesGroup.length - 1;
+            slidesGroup[appearSlide].classList.add('appear');
+            console.log('Cliccato avanti', appearSlide);
+        }
     }
 );
